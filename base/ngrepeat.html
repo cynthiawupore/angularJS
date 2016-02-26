@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../build/angular.min.js" charset="utf-8"></script>
+  </head>
+
+  <script type="text/javascript">
+    var app = angular.module('ngrepeat',[])
+
+    app.controller('ngrepeatCtr',function($scope){
+      $scope.developers=[
+        {name:'wuqian',country:'china'},
+        {name:'cynthia',country:'usa'},
+        {name:'wupore',country:'canada'},
+        {name:'selene',country:'english'}
+      ]
+    })
+  </script>
+
+  <body>
+    <div class="" ng-app='ngrepeat' ng-controller='ngrepeatCtr'>
+      <ul>
+        <li ng-repeat='person in developers'>
+          {{person.name}} from {{person.country}}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

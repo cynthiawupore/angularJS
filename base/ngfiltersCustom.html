@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>hello cynthia</title>
+    <script src="../build/angular.min.js" charset="utf-8"></script>
+  </head>
+
+  <script type="text/javascript">
+    var app = angular.module('app',[]);
+
+    // 自定义filter
+    app.filter('capt',function(){
+      return function(input,param){
+        return input.substring(0,1).toUpperCase()+input.substring(1);
+      }
+    })
+  </script>
+
+  <body>
+    <div class="" ng-app='app'>
+      <span>{{'this is some text' | capt}}</span>
+    </div>
+  </body>
+</html>

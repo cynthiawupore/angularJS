@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../build/angular.min.js" charset="utf-8"></script>
+  </head>
+
+  <script type="text/javascript">
+    var app = angular.module('appName',[]);
+
+    app.controller('controllerName',function($scope){
+      $scope.clickName = function(){
+        $scope.message = 'Name : ' + $scope.userInput;
+      }
+    })
+
+    app.directive('focus',function(){
+      return {
+        link : function (scope,element,attrs){
+          element[0].focus();
+        }
+      }
+    })
+  </script>
+
+  <body>
+    <div class="" ng-app='appName' ng-controller='controllerName'>
+      <p>
+        what's your name ?
+      </p>
+      <br>
+      <input type="text" name="name" placeholer="input your name here" ng-model＝'userInput'>
+      <button type="button" name="button" ng-click='clickName()'>click here</button>
+      <h3>{{message}}</h3>
+    </div>
+  </body>
+</html>

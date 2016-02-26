@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../build/angular.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="" ng-app>
+      <button type="button" name="button" ng-init='shouldShow=true' ng-click='shouldShow = !shouldShow'>Flip the shouldShow variable</button>
+      <div class="" ng-show='shouldShow'>
+        <h3>showing {{shouldShow}}</h3>
+      </div>
+      <div class="" ng-hide='shouldShow'>
+        <h3>hiding {{shouldShow}}</h3>
+      </div>
+    </div>
+  </body>
+</html>

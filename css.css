@@ -1,0 +1,163 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+body{
+  background: #fff;
+  font-family: "Microsoft Yahei";
+  font-size: 14px;
+
+}
+a{
+  color: #555555;
+  text-decoration: none;
+}
+a:hover{
+  cursor: pointer;
+}
+p{
+  color: #555555;
+  font-size: 12px;
+  line-height: 200%;
+}
+time{
+  font-size: 12px;
+  color: #ccc;
+}
+li{
+  list-style: none;
+  float: left;
+}
+
+.cynthia-post{
+  margin: 2%;
+  width: 90%;
+  padding: 3%;
+  height: auto;
+}
+
+/*nav*/
+.cynthia-nav{
+  height: auto;
+  overflow: auto;
+  padding-bottom: 2%;
+  border-bottom: 2px #ddd solid;
+}
+.cynthia-nav li{
+  padding: 0 2%;
+  height: auto;
+  display: block;
+}
+.cynthia-search{
+  width: 100%;
+  height: 25px;
+  border: 1px #ddd solid;
+  padding:0 3%;
+  background: url(search.png) right no-repeat;
+  background-size: 20px 20px;
+}
+
+/*list*/
+.cynthia-list{
+  width: 100%;
+}
+
+.cynthia-list li{
+  width: 95%;
+  margin-left: 5%;
+  border-left: 1px #ddd solid;
+}
+
+.cynthia-list li a{
+  color: #4094c7;
+  font-size: 16px;
+}
+
+.cynthia-list li p{
+  margin-top: 10px;
+}
+
+.cynthia-list li img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: -25px;
+  margin-top:20px;
+  border: 2px #ddd solid;
+}
+
+.cynthia-list-item{
+  width: 91%;
+  margin-left: 5%;
+  padding:2%;
+  background: #f5f5f5;
+}
+
+/*add*/
+.cynthia-add{
+  margin: 2%;
+  width: 90%;
+  padding: 3%;
+  height: auto;
+}
+.cynthia-add-title{
+  width: 94%;
+  margin: 0 auto;
+  border: 1px #ddd solid;
+  min-height: 50px;
+  padding: 2%;
+  font-size: 18px;
+  color: #333;
+}
+.cynthia-add-content{
+  width: 94%;
+  margin: 0 auto;
+  border: 1px #ddd solid;
+  min-height: 450px;
+  padding: 2%;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.cynthia-add-submit{
+  width: 30%;
+  height: 40px;
+  background: #4094c7;
+  font-size: 16px;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.cynthia-add-submit:hover{
+  cursor: pointer;
+}
+
+/*detail*/
+.cynthia-detail{
+  margin: 2%;
+  width: 90%;
+  padding: 3%;
+  height: auto;
+}
+.cynthia-detail h1{
+  padding: 3% 0;
+}
+.cynthia-detail time{
+  display: inline-block;
+  padding: 3% 0;
+}
+.cynthia-edit-btn{
+  display: inline-block;
+  width: 25%;
+  height: 40px;
+  background: #4094c7;
+  font-size: 16px;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 40px;
+}

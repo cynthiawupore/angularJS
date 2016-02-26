@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>文章发布系统</title>
+
+    <script src="../build/angular.min.js" charset="utf-8"></script>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="autor" content="cynthia娆墨旧染">
+    <meta name="robots" content="cynthia娆墨旧染">
+    <meta name="Generator" content="Atom">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta http-equiv="windows-Target" content="_top">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link rel="stylesheet" href="css.css" media="screen" title="no title" charset="utf-8">
+    <script src="../build/angular.min.js" charset="utf-8"></script>
+    <script src="../build/angular-route.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="cynthia-post" ng-app="NewsPub">
+      <ul class="cynthia-nav">
+        <li>
+          <a href="#/list">文章列表</a>
+        </li>
+        <li>
+          <a href="#/add">写文章</a>
+        </li>
+        <li style='float: right;margin-right: 2%;'>
+          <input type="text" name="name" value="" ng-model='search' placeholder="关键字搜索" class="cynthia-search" >
+        </li>
+      </ul>
+      <div class="" ng-view></div>
+
+      <!-- list -->
+      <script type="text/ng-template" id="list.html">
+          <div class="">
+            <ul class="cynthia-list">
+              <li ng-repeat="news in newsList | filter:search" >
+                <img src="1.png" alt="" />
+                <div class="cynthia-list-item">
+                  <a href="#/detail/{{news.id}}">{{news.id}}.{{news.title}}</a>
+                  <p>
+                    {{news.content}}
+                  </p>
+                  <time>时间：{{news.date}}</time>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+      </script>
+
+      <!-- add -->
+      <script type="text/ng-template" id="add.html">
+        <div class="cynthia-add">
+            <input type="text" name="name" value="" class="cynthia-add-title" ng-model="title" placeholder="输入文章标题">
+            <textarea cols="30" rows="10" class="cynthia-add-content" ng-model="content" placeholder="输入文章内容"></textarea>
+            <input type="button" name="name" value="提交" class="cynthia-add-submit" ng-click="add()">
+        </div>
+      </script>
+
+      <!-- edit -->
+      <script type="text/ng-template" id="edit.html">
+        <div class="cynthia-add">
+            <input type="text" name="name" value="" class="cynthia-add-title" ng-model="news.title">
+            <textarea cols="30" rows="10" class="cynthia-add-content" ng-model="news.content"></textarea>
+            <input type="button" name="name" value="提交" class="cynthia-add-submit" ng-click="update()">
+        </div>
+      </script>
+
+      <!-- detail -->
+      <script type="text/ng-template" id="detail.html">
+        <div class="cynthia-detail">
+          <h1>{{news.title}}</h1>
+          <hr>
+          <p>
+            {{news.content}}
+          </p>
+          <time>时间： {{news.date}}</time>
+          <br>
+          <a href="#/edit/{{news.id}}" class="cynthia-edit-btn">重新编辑</a>
+        </div>
+      </script>
+
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    var app = angular.module('NewsPub', ['ngRoute']);
+    function routeConfig($routeProvider){
+      $routeProvider.
+      when('/', {
+          controller: 'ListController',
+          templateUrl: 'list.html'
+      }).
+      when('/detail/:id', {
+          controller: 'DetailController',
+          templateUrl: 'detail.html'
+      }).
+      when('/edit/:id', {
+          controller: 'EditController',
+          templateUrl: 'edit.html'
+      }).
+      when('/list', {
+          controller: 'ListController',
+          templateUrl: 'list.html'
+      }).
+      when('/add', {
+          controller: 'AddController',
+          templateUrl: 'add.html'
+      }).
+          otherwise({
+              redirectTo: '/'
+          });
+      };
+
+    app.config(routeConfig);
+
+    var newsList = [
+      {
+        id : 1,
+        title : '娆声酒染',
+        content : '被理科的纯黑纯白浸染久了，很多感觉变得迟钝，再也写不出那年窗下的马蹄江山和安静沧桑。那样的青石板街，那样的细碎夕阳，只叹一句片片往事伤。很多时候有很多感慨，但是只要面对着编辑器，面对着一行行代码，很快华丽的辞藻便消失得无影无踪。我不知道是否有女生和我一样，从一个怀揣公主梦的年纪，到自己亲手撕碎自己所有的幻想，变成像一个汉子一样战斗，不再依赖任何人，靠着自己的双手给人生上色一个缤纷童话。或许是成长，或许是成熟，但是心里，有什么地方空了下来。当情绪可以很好得控制，做事也可以想得很有逻辑，是非曲直很明白。不知道是幸，还是不幸。一夜风霜。越发发现最好释怀的地方却是KTV，可以安静听着某个朋友在某句歌词里投入的情绪，猜测他所经历的事情，也可以点首嗨歌把悲伤吼得撕心裂肺。对于背后的故事，我们只字不提。一群人的狂欢里尝着自己的孤单。上海很繁华，却也很落寞。可以很快聚集一批人陪你笑谈人生，却也孤单到想找个人说说心里话也不能。我们需要正能量地活着，所有的悲伤都不适合出现在朋友圈。忙碌可以让你情绪平复，然后不悲不喜。浮生一劫又一节，谁的曲折浸染了酒味揉进了绕梁的歌声里？',
+        date : new Date()
+      },
+      {
+        id : 2,
+        title : '《活着》（作者：余华） 读后感',
+        content : '作者下乡去收录民谣在田野里遇到一个老汉正在和牛老说好多名字，觉得好奇，就问老汉为什么一头牛有那么多名字。于是通过老汉的视角，第一人称回忆老汉的一生。老汉叫富贵，年轻的时候是一纨绔子弟，娶得是米行老板的千金家珍，他们家到他这一代是第三代。到他这一代在他手里把家产通过赌博全部输给了龙二。他爹，他娘，他儿子，他媳妇，他女儿，他女婿，他外孙...这些人在土地改革、文化大革命的背景下陆续因为各种原因死去。他爹被他气着摔死在蹲了一辈子的粪缸上。他娘在他被抓去当兵期间病死了。他儿子有庆是因为给县长（和富贵一起被抓壮丁，一起打过战）的女人输血被抽干死。他媳妇家珍得了软骨病加上受不了儿子的去世也就跟着去了。他女儿凤霞早年一场高烧后又聋又哑，后来也因为生孩子雪崩死的。他女婿二喜是个歪头，在工地上干活被掉下来的板块压死的。他的外孙苦根更是因为太久没吃饱在吃豆子的时候噎死的。最后只剩下富贵自己和一头老牛，老牛名字也叫富贵。而这一本不断死人的书，名字却叫活着。富贵的一生都在忍受亲人的去世。或许告诉我们：1.生命是一场不断失去的过程。2.生命是坚韧的，再多的悲痛都不能将其轻易打倒。3.死去的人未必不是幸福的，活着的人要带着所有关于死去的人的一生活下去。',
+        date : new Date()
+      },
+      ];
+
+    app.controller('ListController',function($scope){
+      $scope.newsList = newsList;
+    });
+
+    app.controller('DetailController',function($scope, $routeParams){
+      $scope.news = newsList[$routeParams.id-1];
+    });
+
+    app.controller('AddController',function($scope,$location){
+      $scope.title = '';
+      $scope.content = '';
+      $scope.add = function(){
+          newsList.push({
+              id : newsList.length+1,
+              title : $scope.title,
+              content : $scope.content,
+              date : new Date()
+          });
+
+          $location.path('list');
+      }
+    });
+
+    app.controller('EditController',function($scope, $routeParams, $location){
+      $scope.news = newsList[$routeParams.id-1];
+      $scope.update = function(){
+          newsList[$routeParams.id-1] = $scope.news;
+
+          $location.path('list');
+      }
+    })
+  </script>
+</html>
